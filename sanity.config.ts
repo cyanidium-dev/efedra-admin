@@ -10,7 +10,19 @@ export default defineConfig({
   projectId: 'md6ssm3p',
   dataset: 'production',
 
-  plugins: [structureTool(), visionTool()],
+  plugins: [
+    structureTool({
+      structure: (S) =>
+        S.list()
+          .title('Контент')
+          .items([
+            S.listItem()
+              .title('Лікарі')
+              .child(S.documentList().title('Лікарі').filter('_type == "doctor"')),
+          ]),
+    }),
+    visionTool(),
+  ],
 
   schema: {
     types: schemaTypes,
