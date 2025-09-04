@@ -44,7 +44,16 @@ export const post = defineType({
       name: 'content',
       title: 'Основний текст',
       type: 'array',
-      of: [{type: 'block'}],
+      of: [
+        {
+          type: 'block',
+          styles: [{title: 'Normal', value: 'normal'}],
+          marks: {
+            decorators: [{title: 'Bold', value: 'strong'}],
+            annotations: [],
+          },
+        },
+      ],
       validation: (Rule) => Rule.required(),
     }),
   ],
