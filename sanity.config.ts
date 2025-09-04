@@ -19,6 +19,9 @@ export default defineConfig({
             S.listItem()
               .title('Лікарі')
               .child(S.documentList().title('Лікарі').filter('_type == "doctor"')),
+            S.listItem()
+              .title('Блог')
+              .child(S.documentList().title('Статті блогу').filter('_type == "post"')),
           ]),
     }),
     visionTool(),
