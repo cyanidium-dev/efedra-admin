@@ -12,6 +12,16 @@ export const post = defineType({
       validation: (Rule) => Rule.required(),
     }),
     defineField({
+      name: 'slug',
+      title: 'Slug',
+      type: 'slug',
+      options: {
+        source: 'title',
+        maxLength: 96,
+      },
+      validation: (Rule) => Rule.required(),
+    }),
+    defineField({
       name: 'image',
       title: 'Картинка',
       type: 'image',
@@ -34,7 +44,7 @@ export const post = defineType({
       validation: (Rule) => Rule.required(),
     }),
     defineField({
-      name: 'excerpt',
+      name: 'description',
       title: 'Короткий опис',
       type: 'text',
       rows: 3,
