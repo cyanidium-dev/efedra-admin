@@ -22,6 +22,9 @@ export default defineConfig({
             S.listItem()
               .title('Блог')
               .child(S.documentList().title('Статті блогу').filter('_type == "post"')),
+            S.listItem()
+              .title('Послуги')
+              .child(S.documentList().title('Послуги').filter('_type == "service"')),
           ]),
     }),
     visionTool(),
