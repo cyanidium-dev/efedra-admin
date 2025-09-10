@@ -24,8 +24,22 @@ export default defineType({
       validation: (Rule) => Rule.required(),
     }),
     defineField({
+      name: 'order',
+      title: 'Порядок відображення в секції категорії послуг',
+      type: 'number',
+      validation: (Rule) => Rule.required().min(1).error('Вкажіть порядок від 1 і вище'),
+    }),
+    defineField({
+      name: 'categoryImage',
+      title: 'Картинка послуги для секції категорії послуг',
+      type: 'image',
+      options: {hotspot: true},
+      validation: (Rule) => Rule.required(),
+    }),
+    defineField({
       name: 'mainImage',
       title: 'Головна картинка послуги',
+      description: 'Велике фото, яке відображається на початку сторінки послуги',
       type: 'image',
       options: {hotspot: true},
       validation: (Rule) => Rule.required(),
