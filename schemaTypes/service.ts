@@ -232,23 +232,6 @@ export default defineType({
       ],
       validation: (Rule) => Rule.required(),
     }),
-
-    // Розділ: Вартість
-    defineField({
-      name: 'pricing',
-      title: 'Вартість',
-      type: 'object',
-      fields: [
-        {
-          name: 'link',
-          title: 'Посилання для кнопки',
-          description: 'Посилання, яке переводить на прайс',
-          type: 'url',
-          validation: (Rule) => Rule.required(),
-        },
-      ],
-      validation: (Rule) => Rule.required(),
-    }),
   ],
 
   preview: {
