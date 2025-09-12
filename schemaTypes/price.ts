@@ -69,7 +69,6 @@ export const priceCategory = defineType({
                       title: 'Тривалість процедури',
                       type: 'string',
                       description: 'Наприклад: 30 хвилин',
-                      validation: (Rule) => Rule.required(),
                     }),
                   ],
                 }),
