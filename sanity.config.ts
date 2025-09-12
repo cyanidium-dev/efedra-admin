@@ -25,6 +25,9 @@ export default defineConfig({
             S.listItem()
               .title('Послуги')
               .child(S.documentList().title('Послуги').filter('_type == "service"')),
+            S.listItem()
+              .title('Каталог цін')
+              .child(S.documentList().title('Ціни').filter('_type == "priceCategory"')),
           ]),
     }),
     visionTool(),
