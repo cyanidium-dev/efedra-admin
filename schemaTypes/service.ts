@@ -85,7 +85,6 @@ export default defineType({
           validation: (Rule) => Rule.min(1).required(),
         },
       ],
-      validation: (Rule) => Rule.required(),
     }),
 
     // Розділ: Коли рекомендовано
@@ -103,7 +102,6 @@ export default defineType({
           ],
         },
       ],
-      validation: (Rule) => Rule.min(4).max(4).required(),
     }),
 
     // Розділ: Як проходить процедура
@@ -130,7 +128,6 @@ export default defineType({
           validation: (Rule) => Rule.min(3).max(3).required(),
         },
       ],
-      validation: (Rule) => Rule.required(),
     }),
 
     // Розділ: Переваги
@@ -149,7 +146,6 @@ export default defineType({
           ],
         },
       ],
-      validation: (Rule) => Rule.min(3).max(3).required(),
     }),
 
     // Розділ: Протипоказання
@@ -174,7 +170,6 @@ export default defineType({
             }),
         },
       ],
-      validation: (Rule) => Rule.required(),
     }),
 
     // Розділ: Види
@@ -229,7 +224,6 @@ export default defineType({
           validation: (Rule) => Rule.min(1).required(),
         },
       ],
-      validation: (Rule) => Rule.required(),
     }),
   ],
 
