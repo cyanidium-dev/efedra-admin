@@ -140,12 +140,37 @@ export default defineType({
         {
           type: 'object',
           fields: [
-            {name: 'icon', title: 'Іконка', type: 'image'},
-            {name: 'title', title: 'Назва', type: 'string'},
-            {name: 'text', title: 'Короткий текст', type: 'text'},
+            {
+              name: 'icon',
+              title: 'Іконка',
+              type: 'image',
+              validation: (Rule) => Rule.required(),
+            },
+            {
+              name: 'title',
+              title: 'Назва',
+              type: 'string',
+              validation: (Rule) => Rule.required(),
+            },
+            {
+              name: 'text',
+              title: 'Короткий текст',
+              type: 'text',
+              validation: (Rule) => Rule.required(),
+            },
           ],
         },
       ],
+      validation: (Rule) =>
+        Rule.custom((items: any[] | undefined) => {
+          if (!items || items.length === 0) {
+            return true // поле необов'язкове
+          }
+          if (items.length !== 3) {
+            return 'Має бути рівно 3 переваги'
+          }
+          return true
+        }),
     }),
 
     // Розділ: Протипоказання
@@ -161,13 +186,14 @@ export default defineType({
           type: 'array',
           of: [{type: 'string'}],
           validation: (Rule) =>
-            Rule.required().custom((items: string[] | undefined) => {
-              if (!items) return true // допускаємо пустий список
-              if (items.length % 2 !== 0) {
-                return 'Кількість елементів має бути парною'
-              }
-              return true
-            }),
+            Rule.required()
+              .min(2)
+              .custom((items: string[]) => {
+                if (items.length % 2 !== 0) {
+                  return 'Кількість елементів має бути парною'
+                }
+                return true
+              }),
         },
       ],
     }),
