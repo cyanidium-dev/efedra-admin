@@ -101,6 +101,7 @@ export default defineType({
               name: 'image',
               title: 'Картинка',
               type: 'image',
+              options: {hotspot: true},
               validation: (Rule) => Rule.required(),
             },
             {
@@ -130,7 +131,13 @@ export default defineType({
       title: 'Як проходить процедура',
       type: 'object',
       fields: [
-        {name: 'image', title: 'Картинка', type: 'image', validation: (Rule) => Rule.required()},
+        {
+          name: 'image',
+          title: 'Картинка',
+          type: 'image',
+          options: {hotspot: true},
+          validation: (Rule) => Rule.required(),
+        },
         {
           name: 'steps',
           title: 'Кроки',
@@ -209,7 +216,13 @@ export default defineType({
       title: 'Протипоказання',
       type: 'object',
       fields: [
-        {name: 'image', title: 'Картинка', type: 'image', validation: (Rule) => Rule.required()},
+        {
+          name: 'image',
+          title: 'Картинка',
+          type: 'image',
+          options: {hotspot: true},
+          validation: (Rule) => Rule.required(),
+        },
         {
           name: 'items',
           title: 'Список',
@@ -254,6 +267,7 @@ export default defineType({
                   name: 'image',
                   title: 'Картинка',
                   type: 'image',
+                  options: {hotspot: true},
                   validation: (Rule) => Rule.required(),
                 },
                 {
