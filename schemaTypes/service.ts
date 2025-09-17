@@ -97,11 +97,31 @@ export default defineType({
         {
           type: 'object',
           fields: [
-            {name: 'image', title: 'Картинка', type: 'image'},
-            {name: 'text', title: 'Короткий рядок', type: 'string'},
+            {
+              name: 'image',
+              title: 'Картинка',
+              type: 'image',
+              validation: (Rule) => Rule.required(),
+            },
+            {
+              name: 'text',
+              title: 'Короткий рядок',
+              type: 'string',
+              validation: (Rule) => Rule.required(),
+            },
           ],
         },
       ],
+      validation: (Rule) =>
+        Rule.custom((items: any[] | undefined) => {
+          if (!items || items.length === 0) {
+            return true // поле необов'язкове
+          }
+          if (items.length !== 4) {
+            return 'Має бути рівно 4 елементи списка'
+          }
+          return true
+        }),
     }),
 
     // Розділ: Як проходить процедура
@@ -120,8 +140,18 @@ export default defineType({
             {
               type: 'object',
               fields: [
-                {name: 'title', title: 'Назва', type: 'string'},
-                {name: 'description', title: 'Короткий опис', type: 'text'},
+                {
+                  name: 'title',
+                  title: 'Назва',
+                  type: 'string',
+                  validation: (Rule) => Rule.required(),
+                },
+                {
+                  name: 'description',
+                  title: 'Короткий опис',
+                  type: 'text',
+                  validation: (Rule) => Rule.required(),
+                },
               ],
             },
           ],
