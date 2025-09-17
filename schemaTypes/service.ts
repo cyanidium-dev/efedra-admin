@@ -74,7 +74,7 @@ export default defineType({
           name: 'images',
           title: 'Три картинки',
           type: 'array',
-          of: [{type: 'image'}],
+          of: [{type: 'image', options: {hotspot: true}}],
           validation: (Rule) => Rule.min(3).max(3).required(),
         },
         {
